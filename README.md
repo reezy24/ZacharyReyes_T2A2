@@ -20,12 +20,12 @@ This is an issue as it's very likely that a lot of great game ideas never come t
 
 # [R12] User Stories
 
-For brevity, "game person" refers to any of the following: programmer, musician, animator, modeller, designer, writer, tester, producer, artist, project manager, 
+For brevity, "creative" refers to any of the following: programmer, musician, animator, modeller, designer, writer, tester, producer, artist, project manager, 
 
-- As a game person, I want to build a team, so I can oversee development of my game idea
-- As a game person, I want to work for a team, so I can get experience in the industry
-- As a game person, I want to work for a team, so I can get paid
-- As a game person, I want to hire other game people, so I can finish my project while focusing on my area of expertise
+- As a creative, I want to build a team, so I can oversee development of my game idea
+- As a creative, I want to work for a team, so I can get experience in the industry
+- As a creative, I want to work for a team, so I can get paid
+- As a creative, I want to hire other creatives, so I can finish my project while focusing on my area of expertise
 - As a game programmer, I want to hire another programmer, so I don't have to do the grunt work
 - As a musician, I want to hire a level designer, so I can turn my music into an interactive experience
 - As an animator, I want to sell my animations, so other games can use them
