@@ -1,0 +1,37 @@
+required pages 
+
+- landing page
+> select build teams
+> select browse projects
+> filter
+> grid of profiles
+
+- show profile
+> work examples
+> personal description
+> photo of face
+> button to request to hire
+
+- create project
+> form with fields
+> title
+> positions required (drop-down)
+> estimated duration
+> estimated budget
+> photos
+> interiew questions per position
+> create button
+
+- signup page
+
+- dashboard (still unclear)
+> messages
+> active projects
+> active positions
+
+- create profile
+> see show
+
+- view hire applications/responses
+
+
