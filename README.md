@@ -107,6 +107,10 @@ For brevity, "creative" refers to any of the following: programmer, musician, an
 # [R16] Third-Party Services
 
 # [R17] Models
+- Admin
+- User (has many projects, has many job applications)
+- Project (has many users, has many job applications)
+- Job application (has one project, has one user)
 
 # [R18] Database Relations
 
