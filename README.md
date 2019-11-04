@@ -124,4 +124,4 @@ I started off by listing the pages I need. It's not a complete list, I just need
 
 I also created a trello board with the requirements, high distinction criteria and high-level tasks listed. 
 
-![page_list](https://github.com/reezy24/ZacharyReyes_T2A2/blob/master/docs/images/trello_start.PNG)
+![page_list](https://github.com/reezy24/ZacharyReyes_T2A2/blob/master/docs/images/trello_start.png)
