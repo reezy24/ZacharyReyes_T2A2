@@ -121,3 +121,7 @@ For brevity, "creative" refers to any of the following: programmer, musician, an
 I started off by listing the pages I need. It's not a complete list, I just needed something that I could refer to to get started with sketches. 
 
 ![page list](https://github.com/reezy24/ZacharyReyes_T2A2/blob/master/docs/images/page_list.PNG)
+
+I also created a trello board with the requirements, high distinction criteria and high-level tasks listed. 
+
+![page_list](https://github.com/reezy24/ZacharyReyes_T2A2/blob/master/docs/images/trello_start.PNG)
