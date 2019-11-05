@@ -1,0 +1,24 @@
+<h1>New Project</h1>
+
+<%= form_with model: @project do |f| %>
+    <div>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+    </div>
+    <div>
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+    </div>
+    <div>
+        <%= f.label :duration %>
+        <%= f.text_field :duration %>
+    </div>
+    <div>
+        <%= f.label :budget %>
+        <%= f.text_field :budget %>
+    </div>
+    <div>
+        <%= f.label "Images" %>
+        <%= f.file_field "Images" %>
+    </div>
+<% end %>
