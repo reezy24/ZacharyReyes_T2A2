@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'creating a project' do
-    it 'saves and displays the resulting project' do
+    it 'fills in project details and details of the first role and then renders' do
         
         visit '/projects/new'
 
@@ -15,10 +15,10 @@ describe 'creating a project' do
         attach_file 'Images', 'app/assets/images/local/cod.jpg'
 
         # add role
-        select 'Animator', from: 'Roles'
-        choose 'Blender'
-        choose 'Cinema3D'
-        fill_in 'Role Description', with: 'I need an Animator.'
+        # select "Programmer", from: "Expertise"
+        # choose 'Blender'
+        # choose 'Cinema3D'
+        fill_in 'Role description', with: 'I need an Animator.'
         click_button 'Add Role'
 
         click_button 'Post Project'

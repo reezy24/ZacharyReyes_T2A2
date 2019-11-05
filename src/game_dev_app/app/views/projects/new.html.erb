@@ -18,7 +18,19 @@
         <%= f.text_field :budget %>
     </div>
     <div>
-        <%= f.label "Images" %>
-        <%= f.file_field "Images" %>
+        <%= f.label :images %>
+        <%= f.file_field :images %>
     </div>
+    <div>
+        <h2>Add Role</h2>
+        <div>
+            <%= f.label :expertise %>
+            <%= select_tag :expertise, options_from_collection_for_select(Expertise.all, "id", "title"), name: 'project_expertise' %>
+        </div>
+        <div>
+            <%= f.label "Role Description" %>
+            <%= f.text_area "Role Description" %>
+        </div>
+    </div>
+    
 <% end %>
