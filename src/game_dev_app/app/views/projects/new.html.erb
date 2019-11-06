@@ -23,14 +23,17 @@
     </div>
     <div>
         <h2>Add Role</h2>
-        <div>
-            <%= f.label :expertise %>
-            <%= select_tag :expertise, options_from_collection_for_select(Expertise.all, "id", "title"), name: 'project_expertise' %>
-        </div>
-        <div>
-            <%= f.label "Role Description" %>
-            <%= f.text_area "Role Description" %>
-        </div>
+        <%= form_with model: @project_role do |f2| %>
+            <div>
+                <%= f2.label :expertise %>
+                <%= select_tag :expertise, options_from_collection_for_select(Expertise.all, "id", "title"), name: 'project_expertise' %>
+            </div>
+            <div>
+                <%= f2.label "Role Description" %>
+                <%= f2.text_area "Role Description" %>
+            </div>
+            <%= f.submit "Add Role" %>
+        <% end %>
     </div>
-    
+    <%= f.submit "Post Project" %>
 <% end %>

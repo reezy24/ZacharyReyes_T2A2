@@ -15,7 +15,7 @@ describe 'creating a project' do
         attach_file 'Images', 'app/assets/images/local/cod.jpg'
 
         # add role
-        # select "Programmer", from: "Expertise"
+        select "Programmer", from: "Expertise"
         # choose 'Blender'
         # choose 'Cinema3D'
         fill_in 'Role description', with: 'I need an Animator.'
