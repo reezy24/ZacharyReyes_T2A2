@@ -1,0 +1,32 @@
+associations:
+
+member
+> has_many expertises, through: :member_expertises
+> has_many project_roles
+> has_many offers
+> has_many projects
+
+member_expertise
+> belongs_to member
+> has_one expertise
+
+expertise
+> has_many members, through: :member_expertises
+> has_many project_roles
+
+project_role
+> has_one expertise
+> has_one member
+> belongs_to project
+> has_many offers
+
+project
+> belongs_to owner
+> has_many project_roles
+> has_many offers
+
+offer
+> belongs_to sender
+> has_one project
+> has_one receiver
+*** > has_one project_role ***
