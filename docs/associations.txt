@@ -1,7 +1,7 @@
 associations:
 
 member
-> has_many expertises, through: :member_expertises
+> has_many expertises, through: :member_expertise
 > has_many project_roles
 > has_many offers
 > has_many projects
@@ -9,9 +9,9 @@ member
 member_expertise
 > belongs_to member
 > has_one expertise
-
+*** where does dependent: :destroy go?
 expertise
-> has_many members, through: :member_expertises
+> has_many members, through: :member_expertise
 > has_many project_roles
 
 project_role

@@ -1,5 +1,5 @@
 class MemberExpertise < ApplicationRecord
   belongs_to :member
-  belongs_to :expertise
+  has_one :expertise
   validates :member, :expertise, presence: true
 end
