@@ -1,5 +1,6 @@
 class ProjectRole < ApplicationRecord
   belongs_to :expertise
   belongs_to :project
-  belongs_to :member
+  has_one :member
+  validates :expertise_id, :project_id, :description, presence: true
 end

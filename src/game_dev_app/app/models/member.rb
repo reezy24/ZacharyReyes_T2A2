@@ -8,5 +8,8 @@ class Member < ApplicationRecord
 
     has_many :expertises, through: :member_expertise
     has_many :projects, :class_name => 'Project', :foreign_key => 'owner_id'
+
+    validates :first_name, :last_name, :about_me, presence: true
+    # names should be only letters
     
 end
