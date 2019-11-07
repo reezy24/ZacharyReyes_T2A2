@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'my_dashboard/projects'
+  get 'my_dashboard/offers'
+  get 'my_dashboard/proposals'
+  get 'my_dashboard/profile'
   devise_for :members
   get 'projects/new'
   get 'welcome/index'

@@ -1,6 +1,6 @@
 <h1>New Project</h1>
 
-<%= form_with model: @project do |f| %>
+<%= form_with model: @project, local: true do |f| %>
     <div>
         <%= f.label :title %>
         <%= f.text_field :title %>
@@ -23,7 +23,7 @@
     </div>
     <div>
         <h2>Add Role</h2>
-        <%= form_with model: @project_role do |f2| %>
+        <%= form_with model: @project_role, local: true do |f2| %>
             <div>
                 <%= f2.label :expertise %>
                 <%= select_tag :expertise, options_from_collection_for_select(Expertise.all, "id", "title"), name: 'project_expertise' %>
@@ -32,7 +32,7 @@
                 <%= f2.label "Role Description" %>
                 <%= f2.text_area "Role Description" %>
             </div>
-            <%= f.submit "Add Role" %>
+            <%= f2.submit "Add Role" %>
         <% end %>
     </div>
     <%= f.submit "Post Project" %>
