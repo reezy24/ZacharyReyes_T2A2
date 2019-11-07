@@ -9,13 +9,14 @@ This is an issue as it's very likely that a lot of great game ideas never come t
 
 # [R11] Description
 ## Features
-The app, with the goal of connecting game creatives with other creatives, will contain the following features:
-- The ability to upload pictures and videos of your work
-- Create your own portfolio page
-- View other services
-- Purchase services from others
-- Create teams
-- Create projects
+The MVP, with the goal of connecting game creatives with other creatives, contains the following features:
+- create and post a project, specifying the areas of expertise that you need to fill
+- browse creatives on the platform
+- invite creatives to work on your project
+- create and post a portfolio, specifying your areas of expertise
+- browse projects on the platform
+- request to work on projects you're interested in
+- simultaneously be a project owner and a member of other projects
 
 - game developer building a team
 So, I am a game developer who has just found gamevelop.net
@@ -126,6 +127,9 @@ The app has the following components:
 |  |       | Browse |
 |  |       | Show Member |
 |  |       | Send Request |
+
+The app has x essential features:
+
 # [R16] Third-Party Services
 
 # [R17] Models
