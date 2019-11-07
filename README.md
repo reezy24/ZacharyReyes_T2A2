@@ -103,7 +103,29 @@ For brevity, "creative" refers to any of the following: programmer, musician, an
 # [R14] Entity-Relationship Diagram (ERD)
 
 # [R15] Abstractions
+> Precisely explains and shows understanding of the different high-level components of the app
 
+The app has the following components:
+
+| Model        | Controller           | View  |
+| ------------- |-------------| -----|
+| Member      | MembersController | Landing |
+| Project      | ProjectsController      |   Sign Up |
+| Expertise | MyDashboardController      |    Log In |
+| Offer | ProjectDashboardController      |    New Project |
+| ProjectRole | WelcomeController      |   Show Project |
+| MemberExpertise | BrowseController      |   Dashboard - Projects |
+| Expertise |       | Dashboard - Offers|
+| Expertise |       | Dashboard - Proposals |
+|  |       | Dashboard - Profile |
+|  |       | Edit Profile |
+|  |       | Project Dashboard - Edit |
+|  |       | Project Dashboard - Members |
+|  |       | Project Dashboard - Requests |
+|  |       | Project Dashboard - Profile |
+|  |       | Browse |
+|  |       | Show Member |
+|  |       | Send Request |
 # [R16] Third-Party Services
 
 # [R17] Models
