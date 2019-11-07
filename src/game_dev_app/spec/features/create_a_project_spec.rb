@@ -1,6 +1,27 @@
 require 'rails_helper'
 
-describe 'creating a project' do
+#RSpec.describe ProjectsController, type: :controller do
+describe 'member creates project and hires someone' do
+
+    it 'gets redirected to sign in' do
+        visit '/projects/new'
+        expect(page).to have_content "You need to"
+    end
+
+    it 'signs in' do
+        @project_owner = Member.create(
+            email: "zach@email.com",
+            password: "asdfasdf",
+            password_confirmation: "asdfasdf",
+        )
+        visit new_member_session_path
+        fill_in 'Email', with: @project_owner.email
+        fill_in 'Password', with: @project_owner.password
+        click_button 'Log in'
+        visit projects_new_path
+        expect(page).to have_content "New Project"
+    end
+    
     it 'fills in project details and details of the first role and then renders' do
         
         visit '/projects/new'

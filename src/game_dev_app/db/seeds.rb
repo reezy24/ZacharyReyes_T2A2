@@ -9,6 +9,10 @@
 expertises = Expertise.create(
     [
         {title: "Animator"},
-        {title: "Programmer"}
+        {title: "Artist"},
+        {title: "Level Designer"},
+        {title: "Modeller"},
+        {title: "Musician"},
+        {title: "Programmer"},
     ]
 )

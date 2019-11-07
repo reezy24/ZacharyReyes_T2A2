@@ -1,4 +1,4 @@
-require 'rails-helper'
+require 'rails_helper'
 
 describe "a member requests to work on a project" do
     # navigate to a project page

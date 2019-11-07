@@ -1,0 +1,23 @@
+"Precisely explains and shows understanding of the different high-level components of the app"
+> what are the high level components? 
+ how mvc connects
+ 
+"Provides coherent discussion of the database relations, with reference to the ERD"
+"Complete discussion of the project’s models with an understanding of how its active record associations function"
+> what's the difference? 
+A from rails perspective
+B from database perspective
+one paragraph to answer both
+
+"Identifies and uses appropriate model methods for querying on self and its relationships, extends models scope where appropriate"
+> what's meant by extends models scope?
+appropriate migrations
+
+"Minimise all database calls and implement eager loading where appropriate"
+> what's eager loading?
+cache data i.e. Model.all
+
+"Validates and sanitises all input"
+> validates as in model validations? what's meant my sanitises?
+sanitise - strip anything that might be code
+strong params, require and permit

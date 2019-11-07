@@ -31,9 +31,9 @@ ActiveRecord::Schema.define(version: 2019_11_06_195056) do
   end
 
   create_table "members", force: :cascade do |t|
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.text "about_me", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.text "about_me"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
