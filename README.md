@@ -96,8 +96,7 @@ For brevity, "creative" refers to any of the following: programmer, musician, an
 - As a modeller, I want to work for a team, so I can get paid to produce game assets
 - As a game designer, I want to build a team, so I can oversee development of my game idea
 - As a writer, I want to hire a programmer and artist, so I can bring my story to life
-- As an artist, I want to list my services and work examples, so other game people can hire me 
-- I am either looking for people to hire or looking to work
+- As an artist, I want to list my services and work examples, so other game people can hire me
 
 # [R13] Wireframes
 
@@ -116,9 +115,9 @@ The app has the following components:
 | Offer | ProjectDashboardController      |    New Project |
 | ProjectRole | WelcomeController      |   Show Project |
 | MemberExpertise | BrowseController      |   Dashboard - Projects |
-| Expertise |       | Dashboard - Offers|
-| Expertise |       | Dashboard - Proposals |
-|  |       | Dashboard - Profile |
+| Expertise |       | My Dashboard - Offers|
+| Expertise |       | My Dashboard - Proposals |
+|  |       | My Dashboard - Profile |
 |  |       | Edit Profile |
 |  |       | Project Dashboard - Edit |
 |  |       | Project Dashboard - Members |
@@ -128,7 +127,8 @@ The app has the following components:
 |  |       | Show Member |
 |  |       | Send Request |
 
-The app has x essential features:
+Given the features listed in Description, the above components work together to achieve these features in the following ways:
+- The MembersController allows first-time users to sign up by creating their own Member model. The Member model stores the user's name, profile description, and areas of expertise. Their areas of expertise are represented by the MemberExpertise model, which is the join table between Members and Expertises. Users can view their own profile in the profile section of the My Dashboard view. External users can view other users' profiles in the Browse and Show Member views, and in the My Dashboard or Project Dashboard views where an offer, or request is pending. 
 
 # [R16] Third-Party Services
 
