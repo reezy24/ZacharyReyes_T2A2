@@ -1,4 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<h1><%= @project.title %></h1>
+<!-- manage button for owners -->
+<!-- image -->
+
+<h2>Description</h2>
+<p><%= @project.description %></p>
+
+<h2>Vacant Roles</h2>
+<!-- select RoleExpertise where project == @project -->

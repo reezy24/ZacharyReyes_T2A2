@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_member!
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
 
   # GET /projects
   # GET /projects.json
@@ -11,11 +12,13 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+
   end
 
   # GET /projects/new
   def new
     @project = Project.new
+    
   end
 
   # GET /projects/1/edit
@@ -26,7 +29,7 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
-
+    @project.owner = current_member
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
@@ -70,6 +73,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.fetch(:project, {})
+      params.require(:project).permit(:title, :description, :duration, :budget)
     end
 end
