@@ -32,6 +32,9 @@
             <%= role_form.text_area :description  %>
         </div>
     <% end %>
+    <%= f.add_nested_fields_link :project_roles do %>
+        <span>Add another role</span>
+    <% end %>
     <br /><br />
     <%= f.submit "Post Project" %>
 <% end %>
