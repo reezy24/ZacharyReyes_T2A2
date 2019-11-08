@@ -8,4 +8,6 @@
 <p><%= @project.description %></p>
 
 <h2>Vacant Roles</h2>
-<!-- select RoleExpertise where project == @project -->
+<% @project.project_roles.each do |role| %>
+    <h3><%= role.expertise.title %></h3>
+<% end %>
