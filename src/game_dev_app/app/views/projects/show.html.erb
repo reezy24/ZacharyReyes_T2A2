@@ -10,4 +10,5 @@
 <h2>Vacant Roles</h2>
 <% @project.project_roles.each do |role| %>
     <h3><%= role.expertise.title %></h3>
+    <p><%= role.description %></p>
 <% end %>
