@@ -11,26 +11,26 @@ Member.create(
         {
             first_name: "Zachary",
             last_name: "Reyes",
-            about_me: "Working on GameVelop."
+            about_me: "Working on GameVelop.",
             email: "zach@mail.com", 
             password: "asdfasdf",
-            password_confirmation: "asdfasdf"
+            password_confirmation: "asdfasdf",
         },
         {
             first_name: "Hayley",
             last_name: "Williams",
-            about_me: "Lead singer of Paramore."
+            about_me: "Lead singer of Paramore.",
             email: "hayley@mail.com", 
             password: "asdfasdf",
-            password_confirmation: "asdfasdf"
+            password_confirmation: "asdfasdf",
         },
         {
             first_name: "My",
             last_name: "Dude",
-            about_me: "I can do everything!"
+            about_me: "I can do everything!",
             email: "dude@mail.com", 
             password: "asdfasdf",
-            password_confirmation: "asdfasdf"
+            password_confirmation: "asdfasdf",
         },
     ]
 )
@@ -46,43 +46,43 @@ Expertise.create(
     ]
 )
 
-@zach = Member.where(first_name: "Zachary")
-@hayley = Member.where(first_name: "Hayley")
-@my_dude = Member.where(first_name: "My")
+@zach = Member.first
+@hayley = Member.second
+@my_dude = Member.third
 
 MemberExpertise.create(
     [
         {
             member: @zach,
-            expertise: Expertise.where(title: "Programmer"),
+            expertise: Expertise.find(6),
         },
         {
             member: @hayley,
-            expertise: Expertise.where(title: "Musician"),
+            expertise: Expertise.find(5),
         },
         {
             member: @my_dude,
-            expertise: Expertise.where(title: "Animator"),
+            expertise: Expertise.find(1),
         },
         {
             member: @my_dude,
-            expertise: Expertise.where(title: "Artist"),
+            expertise: Expertise.find(2),
         },
         {
             member: @my_dude,
-            expertise: Expertise.where(title: "Level Designer"),
+            expertise: Expertise.find(3),
         },
         {
             member: @my_dude,
-            expertise: Expertise.where(title: "Modeller"),
+            expertise: Expertise.find(4),
         },
         {
             member: @my_dude,
-            expertise: Expertise.where(title: "Musician"),
+            expertise: Expertise.find(5),
         },
         {
             member: @my_dude,
-            expertise: Expertise.where(title: "Programmer"),
+            expertise: Expertise.find(6),
         },
     ]
 )
@@ -90,21 +90,21 @@ MemberExpertise.create(
 Project.create(
     [
         {
-            owner: @zach
+            owner: @zach,
             title: "The Next Call of Duty",
             description: "Because Treyarch can't get anything right.",
             duration: "24 hours (I'm not kidding)",
             budget: 0,
         },
         {
-            owner: @hayley
+            owner: @hayley,
             title: "Paramore: The Game",
             description: "Because movies are overrated.",
             duration: "12 months",
             budget: 50000,
         },
         {
-            owner: @my_dude
+            owner: @my_dude,
             title: "Fivenite",
             description: "How hard could it be?",
             duration: "24 months",
@@ -135,37 +135,37 @@ end
 Offer.create(
     [
         {
-            project_role: 1,
+            project_role_id: 1,
             sender: @zach, 
             receiver: @hayley,
             description: "Hey Hayley, would love for you to come work on this."
         },
         {
-            project_role: 13,
+            project_role_id: 13,
             sender: @zach, 
             receiver: @my_dude,
             description: "Hey my dude, what an interesting project! Can I help?",
         },
         {
-            project_role: 7,
+            project_role_id: 7,
             sender: @hayley, 
             receiver: @my_dude,
             description: "Hey my dude, would love for you to come work on this."
         },
         {
-            project_role: 2,
+            project_role_id: 2,
             sender: @hayley, 
             receiver: @zach,
             description: "Hey Zach, what an interesting project! Can I help?",
         },
         {
-            project_role: 14,
+            project_role_id: 14,
             sender: @my_dude, 
             receiver: @zach,
             description: "Hey Zach, would love for you to come work on this."
         },
         {
-            project_role: 8,
+            project_role_id: 8,
             sender: @my_dude, 
             receiver: @hayley,
             description: "Hey Hayley, what an interesting project! Can I help?",
