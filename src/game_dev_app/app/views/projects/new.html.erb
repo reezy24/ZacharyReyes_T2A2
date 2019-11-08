@@ -21,19 +21,16 @@
         <%= f.label :images %>
         <%= f.file_field :images %>
     </div>
+    <h2>Add Role</h2>
     <div>
-        <h2>Add Role</h2>
-        <%= form_with model: @project_role, local: true do |f2| %>
-            <div>
-                <%= f2.label :expertise %>
-                <%= select_tag :expertise, options_from_collection_for_select(Expertise.all, "id", "title"), name: 'project_expertise' %>
-            </div>
-            <div>
-                <%= f2.label "Role Description" %>
-                <%= f2.text_area "Role Description" %>
-            </div>
-            <%= f2.submit "Add Role" %>
-        <% end %>
+        <%= f.label :expertise %>
+        <%= select_tag :expertise, options_from_collection_for_select(Expertise.all, "id", "title"), name: 'project_expertise' %>
     </div>
+    <div>
+        <%= f.label "Role Description" %>
+        <%= f.text_area "Role Description" %>
+    </div>
+    <%= f.submit "Add Role" %>
+    <br /><br />
     <%= f.submit "Post Project" %>
 <% end %>
