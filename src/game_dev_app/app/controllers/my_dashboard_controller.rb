@@ -10,7 +10,7 @@ class MyDashboardController < ApplicationController
     @involved_projects = []
     project_roles = ProjectRole.where(member_id: current_member.id)
     project_roles.each do |pr|
-      @involved_projects << Project.find(pr.project_id)
+      @involved_projects << pr.project
     end
     p "member id: #{current_member.id}"
     @projects = @owned_projects + @involved_projects

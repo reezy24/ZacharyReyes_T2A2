@@ -13,7 +13,7 @@
     <nav>
       <% if member_signed_in? %>
         <%= link_to "Dashboard", my_dashboard_projects_path %> <%# should be dashboard_path %>
-        <%= link_to "Browse", projects_path %>
+        <%= link_to "Browse", browse_path %>
         <%= link_to "Log out", destroy_member_session_path, method: :delete %>
       <% else %>
         <%= link_to "Sign In", new_member_session_path %>

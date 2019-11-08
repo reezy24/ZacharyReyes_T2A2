@@ -1,2 +1,21 @@
-<h1>Browse#browse</h1>
-<p>Find me in app/views/browse/browse.html.erb</p>
+<h1>Browse</h1>
+
+<!-- filter -->
+<%= form_with(url: browse_path, method: "get", local: true) do %>
+  <%= label_tag(:group, "I want to:") %>
+  <%= select_tag(:group, options_for_select(["Hire", "Work"])) %>
+  <%= label_tag(:expertise, "a:") %>
+  <%= select_tag :expertise, options_from_collection_for_select(Expertise.all, "id", "title"), name: 'project_expertise' %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<!-- list results -->
+<% if @params[:group] == "Work" then %>
+    <% @results.each do |role| %>
+        <h2><%= role.project.title %></h2>
+        <h3><%= role.expertise.title %></h3>
+        <p><%= role.description %></p>
+    <% end %>
+<% else %>
+    <!-- list projects  -->
+<% end %>

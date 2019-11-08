@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'browse/browse'
+  get 'browse', to: 'browse#browse', as: 'browse'
   get 'my_dashboard/projects'
   get 'my_dashboard/offers'
   get 'my_dashboard/proposals'
