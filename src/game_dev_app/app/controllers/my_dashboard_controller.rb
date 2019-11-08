@@ -18,6 +18,7 @@ class MyDashboardController < ApplicationController
   end
 
   def offers
+    @offers = Offer.where(receiver: current_member)
   end
 
   def proposals
