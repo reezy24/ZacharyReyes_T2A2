@@ -9,13 +9,14 @@ This is an issue as it's very likely that a lot of great game ideas never come t
 
 # [R11] Description
 ## Features
-The app, with the goal of connecting game creatives with other creatives, will contain the following features:
-- The ability to upload pictures and videos of your work
-- Create your own portfolio page
-- View other services
-- Purchase services from others
-- Create teams
-- Create projects
+The MVP, with the goal of connecting game creatives with other creatives, contains the following features:
+- create and post a project, specifying the areas of expertise that you need to fill
+- browse creatives on the platform
+- invite creatives to work on your project
+- create and post a portfolio, specifying your areas of expertise
+- browse projects on the platform
+- request to work on projects you're interested in
+- simultaneously be a project owner and a member of other projects
 
 - game developer building a team
 So, I am a game developer who has just found gamevelop.net
@@ -95,15 +96,40 @@ For brevity, "creative" refers to any of the following: programmer, musician, an
 - As a modeller, I want to work for a team, so I can get paid to produce game assets
 - As a game designer, I want to build a team, so I can oversee development of my game idea
 - As a writer, I want to hire a programmer and artist, so I can bring my story to life
-- As an artist, I want to list my services and work examples, so other game people can hire me 
-- I am either looking for people to hire or looking to work
+- As an artist, I want to list my services and work examples, so other game people can hire me
 
 # [R13] Wireframes
 
 # [R14] Entity-Relationship Diagram (ERD)
 
 # [R15] Abstractions
+> Precisely explains and shows understanding of the different high-level components of the app
 
+The app has the following components:
+
+| Model        | Controller           | View  |
+| ------------- |-------------| -----|
+| Member      | MembersController | Landing |
+| Project      | ProjectsController      |   Sign Up |
+| Expertise | MyDashboardController      |    Log In |
+| Offer | ProjectDashboardController      |    New Project |
+| ProjectRole | WelcomeController      |   Show Project |
+| MemberExpertise | BrowseController      |   Dashboard - Projects |
+| Expertise |       | My Dashboard - Offers|
+| Expertise |       | My Dashboard - Proposals |
+|  |       | My Dashboard - Profile |
+|  |       | Edit Profile |
+|  |       | Project Dashboard - Edit |
+|  |       | Project Dashboard - Members |
+|  |       | Project Dashboard - Requests |
+|  |       | Project Dashboard - Profile |
+|  |       | Browse |
+|  |       | Show Member |
+|  |       | Send Request |
+
+Given the features listed in Description, the above components work together to achieve these features in the following ways:
+- The MembersController allows first-time users to sign up by creating their own Member model. The Member model stores the user's name, profile description, and areas of expertise. Their areas of expertise are represented by the MemberExpertise model, which is the join table between Members and Expertises. Users can view their own profile in the profile section of the My Dashboard view. External users can view other users' profiles in the Browse and Show Member views, and in the My Dashboard or Project Dashboard views where an offer or request is pending. 
+- The ProjectsController allows Members to create their own projects using the Project model. A new Project can be created from the My Dashboard view. It requires a title, description, duration, budget, and at least one area of expertise to be filled, which is represented by the ProjectRole model. The ProjectRole holds a description set by the project owner (e.g. "I need a programmer to code x"), a Project ID, an Expertise ID, and a Member ID which is initially blank. The ProjectRole is considered "filled" when its Member ID is no longer nil, and it is rendered in the views as such. Members can view each of their owned Projects in the My Dashboard view, or in the Project's respective Project Dashboard view (i.e. each Project has it's own Project Dashboard). Members can view projects that they do not own in the Browse and Show Project views, and in their My Dashboard view where an offer or proposal is pending. 
 # [R16] Third-Party Services
 
 # [R17] Models
