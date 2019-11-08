@@ -22,15 +22,16 @@
         <%= f.file_field :images %>
     </div>
     <h2>Add Role</h2>
-    <div>
-        <%= f.label :expertise %>
-        <%= select_tag :expertise, options_from_collection_for_select(Expertise.all, "id", "title"), name: 'project_expertise' %>
-    </div>
-    <div>
-        <%= f.label "Role Description" %>
-        <%= f.text_area "Role Description" %>
-    </div>
-    <%= f.submit "Add Role" %>
+    <%= f.nested_fields_for :project_roles do |role_form| %>
+        <div>
+            <%= role_form.label :expertise %>
+            <%= role_form.select :expertise, options_from_collection_for_select(Expertise.all, "id", "title"), name: 'project_expertise' %>    
+        </div>
+        <div>
+            <%= role_form.label :description %>
+            <%= role_form.text_area :description  %>
+        </div>
+    <% end %>
     <br /><br />
     <%= f.submit "Post Project" %>
 <% end %>

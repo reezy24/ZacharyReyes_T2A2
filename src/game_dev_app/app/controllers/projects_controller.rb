@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
-    
+    @project.project_roles.build
   end
 
   # GET /projects/1/edit
@@ -30,6 +30,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.owner = current_member
+
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
@@ -73,6 +74,15 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:title, :description, :duration, :budget)
+      strong_params = params.require(:project).permit(
+        :title, :description, :duration, :budget,
+        project_roles_attributes: [:expertise, :description],
+      )
+      # replace the expertise id with the acutal object
+      strong_params[:project_roles_attributes].each do |k, attributes|
+        attributes[:expertise] = Expertise.find(attributes[:expertise])
+      end;
+      p "params: ", strong_params
+      return strong_params
     end
 end
