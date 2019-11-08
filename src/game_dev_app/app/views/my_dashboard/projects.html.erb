@@ -3,5 +3,9 @@
 <%= link_to 'New Project', projects_new_path %>
 <% @projects.each do |p| %>
     <h2><%= p.title %></h2>
+    <% if p.owner == current_member then %>
+        <%= link_to 'Manage', root_path %>
+    <% end %>
+    <%= link_to 'View', project_path(id: p.id) %>
 <% end %>
 
