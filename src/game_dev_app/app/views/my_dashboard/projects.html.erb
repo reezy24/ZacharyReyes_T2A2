@@ -1,3 +1,6 @@
 <%= render 'my_dashboard_nav' %>
-<h1>MyDashboard#projects</h1>
-<p>Find me in app/views/my_dashboard/projects.html.erb</p>
+<h1>My Dashboard - Projects</h1>
+<% @projects.each do |p| %>
+    <h2><%= p.title %></h2>
+<% end %>
+
