@@ -4,8 +4,8 @@ class Member < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-    
-    has_many :expertises, through: :member_expertise, dependent: :destroy
+    has_many :member_expertises
+    has_many :expertises, through: :member_expertises, dependent: :destroy
     has_many :project_roles
     # offer is where this member is on receiving end
     has_many :offers, :class_name => 'Offer', :foreign_key => 'receiver_id'
@@ -16,4 +16,7 @@ class Member < ApplicationRecord
     #validates :first_name, :last_name, :about_me, presence: true
     # names should be only letters
     
+    def full_name
+      return "#{self.first_name} #{self.last_name}"
+    end
 end

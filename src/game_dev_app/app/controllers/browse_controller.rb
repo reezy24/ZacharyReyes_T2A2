@@ -10,7 +10,7 @@ class BrowseController < ApplicationController
     else
       # return members with areas of expertise that match the expertise
       # search criteria
-      @results << "Creatives"
+      @results = MemberExpertise.where(expertise_id: @params[:project_expertise])
     end
   end
   private

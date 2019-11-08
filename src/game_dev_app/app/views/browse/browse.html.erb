@@ -11,11 +11,18 @@
 
 <!-- list results -->
 <% if @params[:group] == "Work" then %>
+    <!-- display vacant roles matching search criteria -->
     <% @results.each do |role| %>
         <h2><%= role.project.title %></h2>
         <h3><%= role.expertise.title %></h3>
         <p><%= role.description %></p>
     <% end %>
 <% else %>
-    <!-- list projects  -->
+    <!-- display creatives whose expertise matches search criteria -->
+    <% @results.each do |member_expertise| %>
+        <h2><%= member_expertise.member.full_name %></h2>
+        <h3><%= member_expertise.expertise.title %></h3>
+        <p><%= member_expertise.member.about_me %></p>
+
+    <% end %>
 <% end %>
