@@ -30,7 +30,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.owner = current_member
-
+    @project.image.attach(project_params[:image])
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
@@ -75,7 +75,7 @@ class ProjectsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
       strong_params = params.require(:project).permit(
-        :title, :description, :duration, :budget,
+        :title, :description, :duration, :budget, :image,
         project_roles_attributes: [:expertise, :description],
       )
       # replace the expertise id with the acutal object

@@ -18,8 +18,8 @@
         <%= f.text_field :budget %>
     </div>
     <div>
-        <%= f.label :images %>
-        <%= f.file_field :images %>
+        <%= f.label :image %>
+        <%= f.file_field :image %>
     </div>
     <h2>Add Role</h2>
     <%= f.nested_fields_for :project_roles do |role_form| %>

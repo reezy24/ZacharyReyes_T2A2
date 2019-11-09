@@ -70,3 +70,7 @@ gem "devise", "~> 4.7"
 gem "nested_form_fields", "~> 0.8.2"
 
 gem "jquery-rails", "~> 4.3"
+
+gem "cloudinary", "~> 1.12"
+
+gem "activestorage-cloudinary-service", "~> 0.2.3"

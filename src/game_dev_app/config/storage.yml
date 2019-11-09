@@ -6,6 +6,12 @@ local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
 
+cloudinary: 
+  service: Cloudinary
+  cloud_name: reezcloud
+  api_key: 338595961163441
+  api_secret: 8aPFWn8L0Qc1uynbcE2lIe7obUc
+  
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
 #   service: S3
