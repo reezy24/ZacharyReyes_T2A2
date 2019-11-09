@@ -55,34 +55,42 @@ MemberExpertise.create(
         {
             member: @zach,
             expertise: Expertise.find(6),
+            description: "I'm a programmer."
         },
         {
             member: @hayley,
             expertise: Expertise.find(5),
+            description: "I'm a musician."
         },
         {
             member: @my_dude,
             expertise: Expertise.find(1),
+            description: "I can animate."
         },
         {
             member: @my_dude,
             expertise: Expertise.find(2),
+            description: "I'm an artist."
         },
         {
             member: @my_dude,
             expertise: Expertise.find(3),
+            description: "I'm a level designer."
         },
         {
             member: @my_dude,
             expertise: Expertise.find(4),
+            description: "I'm a modeller."
         },
         {
             member: @my_dude,
             expertise: Expertise.find(5),
+            description: "I'm a musician."
         },
         {
             member: @my_dude,
             expertise: Expertise.find(6),
+            description: "I'm a programmer."
         },
     ]
 )

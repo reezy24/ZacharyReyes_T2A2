@@ -1,3 +1,53 @@
 <%= render 'my_dashboard_nav' %>
-<h1>MyDashboard#profile</h1>
-<p>Find me in app/views/my_dashboard/profile.html.erb</p>
+<%# either show profile or button to create one %>
+<% if not current_member.profile_complete? then %>
+    
+    <h1>Complete Your Profile</h1>
+    <%= form_with model: current_member, url: update_profile_path(current_member), local: true do |f| %>
+        <div>
+            <%= f.label :first_name %><br />
+            <%= f.text_field :first_name %><br />
+        </div>
+        <div>
+            <%= f.label :last_name %><br />
+            <%= f.text_field :last_name %><br />
+        </div>
+        <div>
+            <%= f.label :about_me %><br />
+            <%= f.text_area :about_me %><br />
+        </div>
+        <h2>Areas of Expertise</h2>
+        <%= f.nested_fields_for :member_expertises do |me| %>
+            <div>
+                <%= me.label :expertise %>
+                <%= me.select :expertise, options_from_collection_for_select(Expertise.all, " id", "title"), name: 'project_expertise' %>    
+            </div>
+            <div>
+                <%= me.label :description %>
+                <%= me.text_area :description  %>
+            </div>
+            <%= me.remove_nested_fields_link do %>
+                <span>Remove role</span>
+            <% end %>
+        <% end %>
+        <%= f.add_nested_fields_link :member_expertises do %>
+            <span>Add another expertise</span><br />
+        <% end %>
+        <%= f.submit "Complete Profile" %>
+    <% end %>
+<% else %>
+
+    <h1>My Dashboard - Profile</h1>
+    <h2><%= current_member.full_name %></h2>
+    <% current_member.expertises.each do |exp| %>
+        <p><%= exp.title %></p>
+    <% end %>
+    <h2>About Me</h2>
+    <p><%= current_member.about_me %></p>
+    <h2>Portfolio</h2>
+    <% current_member.member_expertises.each do |me| %>
+        <h3><%= me.expertise.title %></h3>
+        <p><%= me.description %></p>
+    <% end %>
+
+<% end %>

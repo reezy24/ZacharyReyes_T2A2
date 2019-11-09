@@ -63,13 +63,19 @@ class MembersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_member
-      @member = Member.find(params[:id])
-    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
-      params.fetch(:member, {})
+      strong_params = params.require(:member).permit(
+        :first_name, :last_name, :about_me,
+        member_expertises_attributes: [:expertise_id, :description],
+      )
+      # replace the expertise id with the acutal object
+      strong_params[:member_expertises_attributes].each do |k, attributes|
+        attributes[:expertise] = Expertise.find(attributes[:expertise])
+      end;
+      p "params: ", strong_params
+      return strong_params
     end
+
 end

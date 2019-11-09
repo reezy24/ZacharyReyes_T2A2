@@ -1,4 +1,5 @@
 class MyDashboardController < ApplicationController
+  before_action :authenticate_member!
   def projects
 
     # get all owned projects where owner matches current member
@@ -38,5 +39,9 @@ class MyDashboardController < ApplicationController
   end
 
   def profile
+    if not current_member.profile_complete? then
+      current_member.member_expertises.build
+    end
   end
+
 end

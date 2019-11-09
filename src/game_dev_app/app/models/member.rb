@@ -6,6 +6,7 @@ class Member < ApplicationRecord
 
     has_many :member_expertises
     has_many :expertises, through: :member_expertises, dependent: :destroy
+    accepts_nested_attributes_for :member_expertises, allow_destroy: true
     has_many :project_roles
     # offer is where this member is on receiving end
     has_many :offers, :class_name => 'Offer', :foreign_key => 'receiver_id'
@@ -18,5 +19,9 @@ class Member < ApplicationRecord
     
     def full_name
       return "#{self.first_name} #{self.last_name}"
+    end
+
+    def profile_complete?
+      return (self.first_name and self.last_name and self.about_me)
     end
 end
