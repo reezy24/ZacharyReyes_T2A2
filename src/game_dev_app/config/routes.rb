@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   resources :projects
   resources :members
   resources :offers
+  delete '/offers/:id', to: 'offers#destroy', as: 'offer_response'
   patch 'members', to: 'members/registrations#update', as: 'update_profile'
 end

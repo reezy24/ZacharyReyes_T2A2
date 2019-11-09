@@ -4,7 +4,7 @@
 <% end %>
 <h2>About Me</h2>
 <p><%= @member.about_me %></p>
-<%= link_to "Hire", new_offer_path(receiver_id: @member.id) %>
+<%= link_to "Hire", new_offer_path(offer: {receiver_id: @member.id}) %>
 <h2>Portfolio</h2>
 <% @member.member_expertises.each do |me| %>
     <h3><%= me.expertise.title %></h3>

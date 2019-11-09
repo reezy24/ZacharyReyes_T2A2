@@ -29,7 +29,7 @@
     <%= form.text_area :description %>
   </div>
   <div class="field">
-    <%= hidden_field_tag :receiver_id, @receiver.id %>
+    <%= form.hidden_field :receiver_id, value: @receiver.id %>
   </div>
   <div class="actions">
     <%= form.submit %>

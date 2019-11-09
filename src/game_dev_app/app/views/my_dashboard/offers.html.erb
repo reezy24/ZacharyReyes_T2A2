@@ -1,8 +1,9 @@
 <%= render 'my_dashboard_nav' %>
 <h1>My Dashboard - Offers</h1>
-<p>Find me in app/views/my_dashboard/offers.html.erb</p>
 <% @offers.each do |offer| %>
+    <h2><%= offer.project_role.project.title %></h2>
     <p>From: <%= offer.sender.full_name %></p>
-    <p>Project: <%= offer.project_role.project.title %></p>
     <p>Position: <%= offer.project_role.expertise.title %></p>
+    <%= link_to "Accept", offer_response_path(id: offer.id), method: :delete %>
+    <%= link_to "Decline", offer_response_path(id: offer.id), method: :delete%>
 <% end %>

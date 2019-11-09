@@ -39,9 +39,9 @@ class OffersController < ApplicationController
   def create
     @offer = Offer.new
     @offer.sender = current_member
-    @offer.receiver = Member.find(params[:receiver_id])
-    @offer.project_role = ProjectRole.find(offer_params[:project_role])
-    @offer.description = offer_params[:description]
+    @offer.receiver = Member.find(offer_params[:offer][:receiver_id])
+    @offer.project_role = ProjectRole.find(offer_params[:offer][:project_role])
+    @offer.description = offer_params[:offer][:description]
     respond_to do |format|
       if @offer.save
         if @offer.project_role.project.owner == current_member then
@@ -61,7 +61,7 @@ class OffersController < ApplicationController
   # PATCH/PUT /offers/1.json
   def update
     respond_to do |format|
-      if @offer.update(offer_params)
+      if @offer.update(offer_params[:offer])
         format.html { redirect_to @offer, notice: 'Offer was successfully updated.' }
         format.json { render :show, status: :ok, location: @offer }
       else
@@ -74,9 +74,19 @@ class OffersController < ApplicationController
   # DELETE /offers/1
   # DELETE /offers/1.json
   def destroy
+    response = params[:response]
+    was_owned = @offer.project_role.project.owner == current_member 
     @offer.destroy
     respond_to do |format|
-      format.html { redirect_to offers_url, notice: 'Offer was successfully destroyed.' }
+      if was_owned and response then
+        format.html { redirect_to project_dashboard_members_path, notice: 'You accepted the offer.' }
+      elsif was_owned and not response then
+        format.html { redirect_to project_dashboard_requests_path, notice: 'Offer was successfully destroyed.' }
+      elsif not was_owned and response then
+        format.html { redirect_to my_dashboard_projects_path, notice: 'Offer was successfully destroyed.' }
+      elsif not was_owned and not response then
+        format.html { redirect_to my_dashboard_offers_path, notice: 'Offer was successfully destroyed.' }
+      end
       format.json { head :no_content }
     end
   end
@@ -84,22 +94,22 @@ class OffersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_offer
-      @offer = Offer.find(params[:id])
+      @offer = Offer.find(offer_params[:id])
     end
     
     def set_receiver
-      @receiver = Member.find(params[:receiver_id])
+      @receiver = Member.find(offer_params[:offer][:receiver_id])
     end
 
     def set_project_role
       @project_role = nil
-      if params[:project_role_id] then
-        @project_role = ProjectRole.find(params[:project_role_id])
+      if offer_params[:offer][:project_role] then
+        @project_role = ProjectRole.find(offer_params[:offer][:project_role])
       end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def offer_params
-      params.require(:offer).permit(:receiver_id, :project_role, :description)
+      params.permit(:id, offer:[:receiver_id, :project_role, :description])
     end
 end

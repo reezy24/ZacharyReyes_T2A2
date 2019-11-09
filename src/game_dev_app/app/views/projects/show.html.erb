@@ -19,6 +19,6 @@
     <h3><%= role.expertise.title %></h3>
     <p><%= role.description %></p>
     <% if @project.owner != current_member then %>
-        <%= link_to "Apply", new_offer_path(receiver_id: @project.owner.id, project_role_id: role.id) %>
+        <%= link_to "Apply", new_offer_path(offer: {receiver_id: @project.owner.id, project_role: role.id}) %>
     <% end %>
 <% end %>
