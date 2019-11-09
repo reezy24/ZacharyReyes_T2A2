@@ -1,3 +1,8 @@
 <%= render 'my_dashboard_nav' %>
-<h1>MyDashboard#proposals</h1>
-<p>Find me in app/views/my_dashboard/proposals.html.erb</p>
+<h1>My Dashboard - Proposals</h1>
+<% @proposals.each do |prop| %>
+    <p>To: <%= prop.receiver.full_name %></p>
+    <p>Project: <%= prop.project_role.project.title %></p>
+    <p>Role: <%= prop.project_role.expertise.title %></p>
+    <p>Description: <%= prop.description %></p>
+<% end %>

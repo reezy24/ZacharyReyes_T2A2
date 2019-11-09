@@ -18,10 +18,23 @@ class MyDashboardController < ApplicationController
   end
 
   def offers
-    @offers = Offer.where(receiver: current_member)
+    # when someone is asking you to work on their project
+    @offers = Offer.where(receiver: current_member) 
   end
 
   def proposals
+    # you ask someone if you can work on their project
+    @pending = Offer.where(
+      # commented code is my failed attempt at writing sql
+      # "sender_id = :current_member AND project.owner_id != :current_member", 
+      # {current_member: current_member.id}
+      sender: current_member,
+      response: nil,
+    )
+    @proposals = []
+    @pending.each do |pend|
+      @proposals << pend if pend.project_role.project.owner != current_member
+    end
   end
 
   def profile
