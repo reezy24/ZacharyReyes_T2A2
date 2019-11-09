@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'project_dashboard/edit/:id', to: 'project_dashboard#edit', as: 'project_dashboard_edit'
+  get 'project_dashboard/members/:id', to: 'project_dashboard#members', as: 'project_dashboard_members'
+  get 'project_dashboard/requests/:id', to: 'project_dashboard#requests', as: 'project_dashboard_requests'
   get 'browse', to: 'browse#browse', as: 'browse'
   get 'my_dashboard/projects'
   get 'my_dashboard/offers'

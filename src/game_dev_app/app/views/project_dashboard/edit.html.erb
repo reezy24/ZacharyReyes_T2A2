@@ -1,0 +1,43 @@
+<%= render 'project_dashboard_nav' %>
+<h1><%= @project.title %> - Edit Details</h1>
+<%= form_with model: @project, local: true do |f| %>
+    <div>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+    </div>
+    <div>
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+    </div>
+    <div>
+        <%= f.label :duration %>
+        <%= f.text_field :duration %>
+    </div>
+    <div>
+        <%= f.label :budget %>
+        <%= f.text_field :budget %>
+    </div>
+    <div>
+        <%= f.label :images %>
+        <%= f.file_field :images %>
+    </div>
+    <h2>Add Role</h2>
+    <%= f.nested_fields_for :project_roles do |role_form| %>
+        <div>
+            <%= role_form.label :expertise %>
+            <%= role_form.select :expertise, options_from_collection_for_select(Expertise.all, "id", "title"), name: 'project_expertise' %>    
+        </div>
+        <div>
+            <%= role_form.label :description %>
+            <%= role_form.text_area :description  %>
+        </div>
+        <%= role_form.remove_nested_fields_link do %>
+            <span>Remove role</span>
+        <% end %>
+    <% end %>
+    <%= f.add_nested_fields_link :project_roles do %>
+        <span>Add another role</span>
+    <% end %>
+    <br /><br />
+    <%= f.submit "Post Project" %>
+<% end %>

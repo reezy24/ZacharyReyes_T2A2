@@ -1,0 +1,5 @@
+<nav>
+    <%= link_to "Edit", project_dashboard_edit_path(id: @project.id) %>
+    <%= link_to "Members", project_dashboard_members_path(id: @project.id) %>
+    <%= link_to "Requests", project_dashboard_requests_path(id: @project.id) %>
+</nav>
