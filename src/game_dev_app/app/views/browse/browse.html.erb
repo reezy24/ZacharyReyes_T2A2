@@ -13,7 +13,7 @@
 <% if @params[:group] == "Work" then %>
     <!-- display vacant roles matching search criteria -->
     <% @results.each do |role| %>
-        <h2><%= role.project.title %></h2>
+        <h2><%= link_to role.project.title, project_path(id: role.project.id) %></h2>
         <h3><%= role.expertise.title %></h3>
         <p><%= role.description %></p>
     <% end %>

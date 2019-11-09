@@ -12,10 +12,18 @@
   <% end %>
   
   <p>To: <%= @receiver.full_name %></p>
-  <div class="field">
-      <%= form.label :project_role %>
-      <%= form.select :project_role, options_from_collection_for_select(@roles, "id", "role_title") %>
-  </div>
+  <% if @project_role then %>
+    <p>Role: <%= @project_role.role_title %></p>
+    <div class="field">
+      <%= form.hidden_field :project_role, value: @project_role.id %>
+    </div>
+  <% else %>
+    <div class="field">
+        <%= form.label :project_role %>
+        <%= form.select :project_role, options_from_collection_for_select(@roles, "id", "role_title") %>
+    </div>
+  <% end %>
+
   <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description %>
