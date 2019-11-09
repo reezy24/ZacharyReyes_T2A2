@@ -20,7 +20,7 @@
         <%= f.nested_fields_for :member_expertises do |me| %>
             <div>
                 <%= me.label :expertise %>
-                <%= me.select :expertise, options_from_collection_for_select(Expertise.all, " id", "title"), name: 'project_expertise' %>    
+                <%= me.select :expertise, options_from_collection_for_select(Expertise.all, "id", "title"), name: 'project_expertise' %>    
             </div>
             <div>
                 <%= me.label :description %>
