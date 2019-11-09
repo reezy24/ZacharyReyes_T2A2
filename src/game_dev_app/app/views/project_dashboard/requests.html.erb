@@ -1,6 +1,13 @@
 <%= render 'project_dashboard_nav' %>
 <h1>Project Dashboard - Requests</h1>
-<% @requests.each do |req| %>
+<h2>Inbound</h2>
+<% @inbound_requests.each do |req| %>
+    <p>From: <%= req.sender.full_name %></p>
+    <p>Role: <%= req.project_role.expertise.title %></p>
+    <p>Description: <%= req.description %></p>
+<% end %>
+<h2>Outbound</h2>
+<% @outbound_requests.each do |req| %>
     <p>To: <%= req.receiver.full_name %></p>
     <p>Role: <%= req.project_role.expertise.title %></p>
     <p>Description: <%= req.description %></p>
