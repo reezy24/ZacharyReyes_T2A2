@@ -4,8 +4,10 @@ In game development, specifically indie game development, a common issue is find
 This is an issue as it's very likely that a lot of great game ideas never come to fruition, simply due to not having been able to find the right people for the job. 
 
 # [R9] Link to App
+https://salty-crag-15864.herokuapp.com/
 
 # [R10] Link to Repo
+https://github.com/reezy24/ZacharyReyes_T2A2
 
 # [R11] Description
 ## Features
@@ -141,24 +143,41 @@ nested-form-fields + jquery-rails|Was used in the new project form to add multip
 
 # [R17] Models
 Member
+
 A member has many expertises, project roles, offers, proposals and projects. A member has many expertises through the MemberExpertise join table, which also holds a description about their experience in this expertise. This allows a user to display multiple expertises in their portfolio. Both offers and proposals use the Offer model. In terms of associations, an offer is where an outside member is asking you to work on their project, while a proposal is where you are asking an outside member if you can work on their project. This allows users to send offers when they are hiring, and receive offers when they are looking for work. A member has projects that they are the owner of. This allows them to create projects which they can subsequently hire for. Projects that the member is a part of (i.e. an offer was accepted) are associated with the member via their project roles instead.
 
 Expertise
+
 An expertise has many members and project roles. An expertise has many members through the MemberExpertise join table. An expertise has many project roles such that all vacancies for a particular expertise can be listed in the app.
 
 Project
+
 Projects are the core of the app. It is the medium that users us to connect, as they allow users to hire and get hired, which is the ultimate goal. A project belongs to an owner, which is a Member. It has many project roles, and from each role multiple offers can be created. All inbound and outbound offers related to this project can be found via its project roles.
 
 MemberExpertise
+
 A MemberExpertise belongs to Member and Expertise. It is the join table between the two. If either the expertise or the member is destroyed, so will the MemberExpertise. 
 
 ProjectRole
+
 ProjectRoles allow vacancies to be specified within projects. A ProjectRole has one expertise and member. The expertise is used in the browse section of the app, when users are looking for vacancies. The member field starts off as nil, and is said to be filled (and is rendered as such) when a member is allocated (i.e. a related offer is accepted). A ProjectRole belongs to a project and has many offers. 
 
 Offer
+
 An offer allows users to express their interest in projects, and ultimately get hired. It belongs to a sender (which is a Member), a receiver and a project role. It also has a response field that is initially nil. When a member accepts or declines an offer, this response is update to true or false and renders in the relevant dashboards accordingly. For example, when a user declines an offer, it will disappear from the offers section of their dashboard, and show as declined in the respective project dashboard of the sender.
 
 # [R18] Database Relations
+> Provides coherent discussion of the database relations, with reference to the ERD
+
+|Relation|Relationship Type|Discussion|
+|---|---|---|
+|Member to Expertise|many-to-many|A Member can have many areas of Expertise, and an area of Expertise can contain many Members. 
+|Member to Project|one-to-many|A Member can have many Projects while a Project can only have one owner. 
+|Member to ProjectRole|one-to-many|A Member can occupy many ProjectRoles, but a ProjectRole can only be filled by one Member.
+|Member to Offer|one-to-many|A member can have many offers, both as a sender or receiver, but an offer can only take one member as its sender and one member as its receiver.
+|Expertise to ProjectRole|one-to-many|Many ProjectRoles can be classified under one Expertise, though a ProjectRole can only specify a single Expertise.
+|ProjectRole to Offer|one-to-many|A ProjectRole can have many offers through people applying for the position and the project owner hiring for this position. An offer can only specify one ProjectRole to be filled.
+|Project to ProjectRole|one-to-many|A Project can have many ProjectRoles that need to be filled, while a ProjectRole can only be a part of one project.
 
 # [R19] Schema Design
 
