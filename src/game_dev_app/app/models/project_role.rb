@@ -4,4 +4,7 @@ class ProjectRole < ApplicationRecord
   has_one :member
   has_many :offers
   validates :expertise_id, :description, presence: true
+  def role_title
+    return "#{project.title} - #{expertise.title}"
+  end
 end

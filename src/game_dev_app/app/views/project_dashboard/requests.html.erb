@@ -1,3 +1,7 @@
 <%= render 'project_dashboard_nav' %>
-<h1>ProjectDashboard#requests</h1>
-<p>Find me in app/views/project_dashboard/requests.html.erb</p>
+<h1>Project Dashboard - Requests</h1>
+<% @requests.each do |req| %>
+    <p>To: <%= req.receiver.full_name %></p>
+    <p>Role: <%= req.project_role.expertise.title %></p>
+    <p>Description: <%= req.description %></p>
+<% end %>

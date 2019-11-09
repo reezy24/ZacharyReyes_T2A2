@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   root 'welcome#index'
   resources :projects
   resources :members
+  resources :offers
   patch 'members', to: 'members/registrations#update', as: 'update_profile'
 end
