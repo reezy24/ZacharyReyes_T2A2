@@ -1,4 +1,11 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_member_path(@member) %> |
-<%= link_to 'Back', members_path %>
+<h2><%= @member.full_name %></h2>
+<% @member.expertises.each do |exp| %>
+    <p><%= exp.title %></p>
+<% end %>
+<h2>About Me</h2>
+<p><%= @member.about_me %></p>
+<h2>Portfolio</h2>
+<% @member.member_expertises.each do |me| %>
+    <h3><%= me.expertise.title %></h3>
+    <p><%= me.description %></p>
+<% end %>

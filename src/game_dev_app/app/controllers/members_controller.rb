@@ -63,7 +63,9 @@ class MembersController < ApplicationController
   end
 
   private
-
+    def set_member
+      @member = Member.find(params[:id])
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
       strong_params = params.require(:member).permit(

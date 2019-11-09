@@ -20,7 +20,7 @@
 <% else %>
     <!-- display creatives whose expertise matches search criteria -->
     <% @results.each do |member_expertise| %>
-        <h2><%= member_expertise.member.full_name %></h2>
+        <h2><%= link_to member_expertise.member.full_name, member_path(id: member_expertise.member_id) %></h2>
         <h3><%= member_expertise.expertise.title %></h3>
         <p><%= member_expertise.member.about_me %></p>
 
