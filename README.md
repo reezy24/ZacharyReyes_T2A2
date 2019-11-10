@@ -1,7 +1,7 @@
 # [R7-8] Purpose
-In game development, specifically indie game development, a common issue is finding people to work with. Generally you specialise in one area and need help in others. For example, when developing games, I focus on programming and need to source maps, assets, art, music, etc. externally. The current way to do this is to browse freelancing sites such as Fiverr and Upwork, view social media pages such as Facebook and Twitter feeds, or look through the credits of other games. This app aims to simplify the process by providing a single platform for programmers, musicians, artists, animators, and modellers to work on others' games and source workers for their own games. 
+When you think of a video game, what does it need to function? Art. Animation. A soundtrack. Some levels. Assets. And, obviously, code. The problem is, the vast majority of freelance game developers and creatives do not possess all of these skills, and need help from someone else when creating a game. The current way to do this is to browse freelancing sites such as Fiverr and Upwork, view social media pages such as Facebook and Twitter feeds, or look through the credits of other games. This app aims to simplify the process of finding the help you need when working on your game.
 
-This is an issue as it's very likely that a lot of great game ideas never come to fruition, simply due to not having been able to find the right people for the job. 
+GameVelop, in it's MVP state, focuses on bringing the six key expertises required for Game Development - Artist, Animator, Modeller, Level Designer, Musician and Programmer - together on one platform. It enables users to hire talent for projects that they own, and to make themselves recruitable for other projects that need their talent. 
 
 # [R9] Link to App
 https://salty-crag-15864.herokuapp.com/
