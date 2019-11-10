@@ -1,3 +1,10 @@
 <%= render 'project_dashboard_nav' %>
 <h1><%= @project.title %> - Members</h1>
+<% @project.project_roles.each do |role| %>
+    <%# for some reason role.member didn't work here %>
+    <%# find the member filling this role %>
+    <% if role.member_id then %>
+        <h2><%= Member.find(role.member_id).full_name %> - <%= role.expertise.title %></h2>
+    <% end %>
+<% end %>
 

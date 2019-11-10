@@ -1,4 +1,5 @@
 class OffersController < ApplicationController
+  before_action :authenticate_member!
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
   before_action :set_receiver, only: [:new]
   before_action :set_project_role, only: [:new]
@@ -74,18 +75,26 @@ class OffersController < ApplicationController
   # DELETE /offers/1
   # DELETE /offers/1.json
   def destroy
-    response = params[:response]
-    was_owned = @offer.project_role.project.owner == current_member 
+    response = offer_params[:offer][:response] == "true"
+    was_owned = @offer.project_role.project.owner == current_member
+    # before destroying, set the project role to filled where applicable
+    if response and was_owned then
+      # this is an request, sender should fill the role
+      @offer.project_role.update(member_id: @offer.sender.id)
+    elsif response and not was_owned then
+      # this is an offer, receiver should fill the role
+      @offer.project_role.update(member_id: @offer.receiver.id)
+    end
     @offer.destroy
     respond_to do |format|
       if was_owned and response then
-        format.html { redirect_to project_dashboard_members_path, notice: 'You accepted the offer.' }
+        format.html { redirect_to project_dashboard_members_path(id: @offer.project_role.project.id), notice: 'You accepted the offer.' }
       elsif was_owned and not response then
-        format.html { redirect_to project_dashboard_requests_path, notice: 'Offer was successfully destroyed.' }
+        format.html { redirect_to project_dashboard_requests_path(id: @offer.project_role.project.id), notice: 'You declined the offer.' }
       elsif not was_owned and response then
-        format.html { redirect_to my_dashboard_projects_path, notice: 'Offer was successfully destroyed.' }
+        format.html { redirect_to my_dashboard_projects_path, notice: 'You accepted the offer.' }
       elsif not was_owned and not response then
-        format.html { redirect_to my_dashboard_offers_path, notice: 'Offer was successfully destroyed.' }
+        format.html { redirect_to my_dashboard_offers_path, notice: 'You declined the offer.' }
       end
       format.json { head :no_content }
     end
@@ -110,6 +119,6 @@ class OffersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def offer_params
-      params.permit(:id, offer:[:receiver_id, :project_role, :description])
+      params.permit(:id, offer:[:receiver_id, :project_role, :description, :response])
     end
 end

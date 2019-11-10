@@ -140,43 +140,43 @@ end
 # proposal - you ask someone if you can work on their project
 # outbound request - you ask someone if they can work on your project
 # inbound request - someone asks you if they can work on your project
-Offer.create(
-    [
-        {
-            project_role_id: 1,
-            sender: @zach, 
-            receiver: @hayley,
-            description: "Hey Hayley, would love for you to come work on this."
-        },
-        {
-            project_role_id: 13,
-            sender: @zach, 
-            receiver: @my_dude,
-            description: "Hey my dude, what an interesting project! Can I help?",
-        },
-        {
-            project_role_id: 7,
-            sender: @hayley, 
-            receiver: @my_dude,
-            description: "Hey my dude, would love for you to come work on this."
-        },
-        {
-            project_role_id: 2,
-            sender: @hayley, 
-            receiver: @zach,
-            description: "Hey Zach, what an interesting project! Can I help?",
-        },
-        {
-            project_role_id: 14,
-            sender: @my_dude, 
-            receiver: @zach,
-            description: "Hey Zach, would love for you to come work on this."
-        },
-        {
-            project_role_id: 8,
-            sender: @my_dude, 
-            receiver: @hayley,
-            description: "Hey Hayley, what an interesting project! Can I help?",
-        },
-    ]
-)
+# Offer.create(
+#     [
+#         {
+#             project_role_id: 1,
+#             sender: @zach, 
+#             receiver: @hayley,
+#             description: "Hey Hayley, would love for you to come work on this."
+#         },
+#         {
+#             project_role_id: 13,
+#             sender: @zach, 
+#             receiver: @my_dude,
+#             description: "Hey my dude, what an interesting project! Can I help?",
+#         },
+#         {
+#             project_role_id: 7,
+#             sender: @hayley, 
+#             receiver: @my_dude,
+#             description: "Hey my dude, would love for you to come work on this."
+#         },
+#         {
+#             project_role_id: 2,
+#             sender: @hayley, 
+#             receiver: @zach,
+#             description: "Hey Zach, what an interesting project! Can I help?",
+#         },
+#         {
+#             project_role_id: 14,
+#             sender: @my_dude, 
+#             receiver: @zach,
+#             description: "Hey Zach, would love for you to come work on this."
+#         },
+#         {
+#             project_role_id: 8,
+#             sender: @my_dude, 
+#             receiver: @hayley,
+#             description: "Hey Hayley, what an interesting project! Can I help?",
+#         },
+#     ]
+# )

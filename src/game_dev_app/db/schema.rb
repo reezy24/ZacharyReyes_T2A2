@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_09_103527) do
+ActiveRecord::Schema.define(version: 2019_11_09_224930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,7 +63,9 @@ ActiveRecord::Schema.define(version: 2019_11_09_103527) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.bigint "project_role_id"
     t.index ["email"], name: "index_members_on_email", unique: true
+    t.index ["project_role_id"], name: "index_members_on_project_role_id"
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
 
@@ -106,6 +108,7 @@ ActiveRecord::Schema.define(version: 2019_11_09_103527) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "member_expertises", "expertises"
   add_foreign_key "member_expertises", "members"
+  add_foreign_key "members", "project_roles"
   add_foreign_key "offers", "project_roles"
   add_foreign_key "project_roles", "expertises"
   add_foreign_key "project_roles", "members"

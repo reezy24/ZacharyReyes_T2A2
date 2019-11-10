@@ -1,12 +1,15 @@
 <%= render 'my_dashboard_nav' %>
 <h1>My Dashboard - Projects</h1>
 <%= link_to 'New Project', projects_new_path %>
-<% @projects.each do |p| %>
-    <h2><%= p.title %></h2>
+<% @owned_projects.each do |p| %>
+    <h2><%= p.title %> - Owner</h2>
     <p><%= p.description %></p>
-    <% if p.owner == current_member then %>
-        <%= link_to 'Manage', project_dashboard_edit_path(id: p.id) %>
-    <% end %>
+    <%= link_to 'Manage', project_dashboard_edit_path(id: p.id) %>
     <%= link_to 'View', project_path(id: p.id) %>
+<% end %>
+<% @roles.each do |role| %>
+    <h2><%= role.role_title %></h2>
+    <p><%= role.project.description %></p>
+    <%= link_to 'View', project_path(id: role.project.id) %>
 <% end %>
 

@@ -5,6 +5,8 @@
     <p>From: <%= req.sender.full_name %></p>
     <p>Role: <%= req.project_role.expertise.title %></p>
     <p>Description: <%= req.description %></p>
+    <%= link_to "Accept", offer_response_path(id: req.id, offer: {response: true}), method: :delete %>
+    <%= link_to "Decline", offer_response_path(id: req.id, offer: {response: false}), method: :delete %>
 <% end %>
 <h2>Outbound</h2>
 <% @outbound_requests.each do |req| %>

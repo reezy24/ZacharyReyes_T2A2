@@ -1,13 +1,13 @@
 class ProjectDashboardController < ApplicationController
+  before_action :authenticate_member!
   before_action :set_proj
   def edit
   end
 
   def members
     @members = []
-    @project.project_roles.where(member: true) do |role|
-      p role
-      @members << role.member
+    @project.project_roles.each do |role|
+      @members << role
     end
   end
 

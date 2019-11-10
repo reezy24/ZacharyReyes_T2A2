@@ -4,6 +4,6 @@
     <h2><%= offer.project_role.project.title %></h2>
     <p>From: <%= offer.sender.full_name %></p>
     <p>Position: <%= offer.project_role.expertise.title %></p>
-    <%= link_to "Accept", offer_response_path(id: offer.id), method: :delete %>
-    <%= link_to "Decline", offer_response_path(id: offer.id), method: :delete%>
+    <%= link_to "Accept", offer_response_path(id: offer.id, offer: {response: true}), method: :delete %>
+    <%= link_to "Decline", offer_response_path(id: offer.id, offer: {response: false}), method: :delete %>
 <% end %>
