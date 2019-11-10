@@ -104,6 +104,8 @@ For brevity, "creative" refers to any of the following: programmer, musician, an
 
 # [R14] Entity-Relationship Diagram (ERD)
 
+![entity relationship diagram](https://github.com/reezy24/ZacharyReyes_T2A2/blob/master/docs/images/gamevelop_erd.png)
+
 # [R15] Abstractions
 > Precisely explains and shows understanding of the different high-level components of the app
 
