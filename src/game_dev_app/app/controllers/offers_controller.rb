@@ -34,7 +34,9 @@ class OffersController < ApplicationController
   def create
     @offer = Offer.new
     @offer.sender = current_member
+    # find member with passed receiver id
     @offer.receiver = Member.find(offer_params[:offer][:receiver_id])
+    # find ProjectRole with passed id
     @offer.project_role = ProjectRole.find(offer_params[:offer][:project_role])
     @offer.description = offer_params[:offer][:description]
     respond_to do |format|
@@ -97,14 +99,17 @@ class OffersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_offer
+      # find offer with passed id
       @offer = Offer.find(offer_params[:id])
     end
     
     def set_receiver
+      # find member with passed id
       @receiver = Member.find(offer_params[:offer][:receiver_id])
     end
 
     def set_project_role
+      # find project role with passed id
       @project_role = nil
       if offer_params[:offer][:project_role] then
         @project_role = ProjectRole.find(offer_params[:offer][:project_role])

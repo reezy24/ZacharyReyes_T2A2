@@ -12,6 +12,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
+    # build project roles to be used in nested forms
     @project.project_roles.build
   end
 
@@ -23,6 +24,7 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
+    # set owner to current member
     @project.owner = current_member
     @project.image.attach(project_params[:image])
     respond_to do |format|
@@ -63,6 +65,7 @@ class ProjectsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
+      # find project using id
       @project = Project.find(params[:id])
     end
 

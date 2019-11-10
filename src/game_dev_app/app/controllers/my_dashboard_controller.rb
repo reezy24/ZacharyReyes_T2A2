@@ -12,6 +12,8 @@ class MyDashboardController < ApplicationController
 
   def offers
     # when someone is asking you to work on their project
+    # get offers where receiver is current member and 
+    # attached project role owner is not current member
     @offers = []
     Offer.where(receiver: current_member).each do |offer|
       @offers << offer if offer.project_role.project.owner != current_member
@@ -20,14 +22,18 @@ class MyDashboardController < ApplicationController
 
   def proposals
     # you ask someone if you can work on their project
+    # get offers where sender is current member and 
+    # attached project role owner is not current member
     @proposals = []
-    Offer.where(sender: current_member, response: nil).each do |pend|
+    Offer.where(sender: current_member).each do |pend|
       @proposals << pend if pend.project_role.project.owner != current_member
     end
   end
 
   def profile
     if not current_member.profile_complete? then
+      # build member expertises so they show up in 
+      # nested forms
       current_member.member_expertises.build
     end
   end

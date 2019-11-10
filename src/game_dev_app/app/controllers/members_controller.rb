@@ -19,6 +19,7 @@ class MembersController < ApplicationController
   # POST /members
   # POST /members.json
   def create
+    # create member with strong params
     @member = Member.new(member_params)
 
     respond_to do |format|
@@ -58,6 +59,7 @@ class MembersController < ApplicationController
 
   private
     def set_member
+      # find member with passed id
       @member = Member.find(params[:id])
     end
     # Never trust parameters from the scary internet, only allow the white list through.

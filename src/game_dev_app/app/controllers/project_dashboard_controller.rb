@@ -5,10 +5,6 @@ class ProjectDashboardController < ApplicationController
   end
 
   def members
-    @members = []
-    @project.project_roles.each do |role|
-      @members << role
-    end
   end
 
   def requests
@@ -29,6 +25,7 @@ class ProjectDashboardController < ApplicationController
     params.permit(:id)
   end
   def set_proj
+    # get project using passed id
     @project = Project.find(proj_params[:id])
   end
 end
