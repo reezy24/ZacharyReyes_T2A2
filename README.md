@@ -155,7 +155,7 @@ The user can achieve this by owning a project and successfully being accepted to
 
 Offers can also be accepted and declined, and it works like this:
 
-Offers where the current user is on the receiving end display with an "Accept" or "Decline" button beneath them. These offers can either be viewed from My Dashboard - Offers or Project Dashboard - Requests (under the "Inbound" section). When either "
+Offers where the current user is on the receiving end display with an "Accept" or "Decline" button beneath them. These offers can either be viewed from My Dashboard - Offers or Project Dashboard - Requests (under the "Inbound" section). When "Accept" is clicked, the "response" parameter is passed as "true", where "Decline" passes it as "false". Both buttons send a DELETE request to "destroy" method of OffersController. The method simply destroys the offer and rerenders the page if response is false. If response is true, "update" is called on the associated ProjectRole's member field. If the current user is accepting the Offer as a project owner, the Offer's sender fills this field. If the current user is accepting the offer as a worker (i.e. someone is trying to hire them), the Offer's receiver fills it instead. The user is finally redirected to the Project Dashboard - Members page if they are accepting as a project owner, or My Dashboard - Projects page if they are accepting as a worker. 
 
 # [R16] Third-Party Services
 Third Party Service / Gem|Description
