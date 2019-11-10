@@ -86,19 +86,19 @@ This is reflected in my dashboard
 
 # [R12] User Stories
 
-For brevity, "creative" refers to any of the following: programmer, musician, animator, modeller, designer, writer, tester, producer, artist, project manager, 
+For brevity, "creative" refers to any of the six key expertises listed in the "Purpose" section.  
 
-- As a creative, I want to build a team, so I can oversee development of my game idea
-- As a creative, I want to work for a team, so I can get experience in the industry
-- As a creative, I want to work for a team, so I can get paid
+- As a creative, I want to work on a project with others, so I can get experience in the industry
+- As a creative, I want to work on a project that needs my expertise, so I can get paid
 - As a creative, I want to hire other creatives, so I can finish my project while focusing on my area of expertise
 - As a game programmer, I want to hire another programmer, so I don't have to do the grunt work
 - As a musician, I want to hire a level designer, so I can turn my music into an interactive experience
 - As an animator, I want to sell my animations, so other games can use them
-- As a modeller, I want to work for a team, so I can get paid to produce game assets
+- As a modeller, I want to work on a project, so I can get paid to produce game assets
 - As a game designer, I want to build a team, so I can oversee development of my game idea
-- As a writer, I want to hire a programmer and artist, so I can bring my story to life
-- As an artist, I want to list my services and work examples, so other game people can hire me
+- As an artist, I want to list my services and work examples, so other creatives can hire me
+- As a creative, I want to easily search the talent I need for my project, so I don't have to go through four different websites
+- As a creative, I want to hire other creatives, so I don't have to do all the work myself
 
 # [R13] Wireframes
 
