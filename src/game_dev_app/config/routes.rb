@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   get 'welcome/index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'welcome#index'
-  resources :projects
-  resources :members
-  resources :offers
+  resources :projects, except: [:index]
+  resources :members, except: [:index]
+  resources :offers, except: [:index]
   delete '/offers/:id', to: 'offers#destroy', as: 'offer_response'
   patch 'members', to: 'members/registrations#update', as: 'update_profile'
 end

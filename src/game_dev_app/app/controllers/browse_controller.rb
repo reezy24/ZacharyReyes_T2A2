@@ -4,7 +4,7 @@ class BrowseController < ApplicationController
     @params = browse_params
     @results = []
     if @params[:group] == "Work" then
-      # return projects with project roles that match the expertise
+      # return project roles that match the expertise
       # search criteria
       @results = ProjectRole.where(expertise_id: @params[:project_expertise])
     else

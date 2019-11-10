@@ -4,12 +4,6 @@ class OffersController < ApplicationController
   before_action :set_receiver, only: [:new]
   before_action :set_project_role, only: [:new]
 
-  # GET /offers
-  # GET /offers.json
-  def index
-    @offers = Offer.all
-  end
-
   # GET /offers/1
   # GET /offers/1.json
   def show
