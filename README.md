@@ -229,9 +229,20 @@ Initially I intended to use the Trello board as a checklist, but I actually foun
 
 ![trello board three](https://github.com/reezy24/ZacharyReyes_T2A2/blob/master/docs/images/trello_2.png)
 
+![trello board four](https://github.com/reezy24/ZacharyReyes_T2A2/blob/master/docs/images/trello_3.png)
+
 By this point, I had a good idea of what I needed to do. My process was simply to sketch and/or list the more detailed tasks on paper, and then copy these to my Todoist Chrome extension and check them off as I went, like below: 
 
 ![todoist](https://github.com/reezy24/ZacharyReyes_T2A2/blob/master/docs/images/todoist.PNG)
 
 I repeated this process until completion. Finish tasks on my Todoist checklist, check back with the Trello board, mark things off as complete or in progress using the colour coding, and then break the high-level Trello down into smaller tasks and fill the Todoist checklist back up again. 
+
+## ERD previous versions
+
+Initial version: 
+![erd initial](https://github.com/reezy24/ZacharyReyes_T2A2/blob/master/docs/images/erd_1.PNG)
+
+
+Second version / version before final: 
+![erd second version](https://github.com/reezy24/ZacharyReyes_T2A2/blob/master/docs/images/erd_2.PNG)
 
