@@ -21,6 +21,7 @@ The MVP, with the goal of connecting game creatives with other creatives, contai
 - simultaneously be a project owner and a member of other projects
 
 - game developer building a team
+
 So, I am a game developer who has just found gamevelop.net
 I have this project that I am working on, but I only program.
 I need asset makers, map makers, animators, artists and musicians. 
@@ -47,6 +48,7 @@ I select "hire" for the ones that showed interest and are optimal
 This is now reflected in my dashboard
 
 - artist looking for work
+
 I am an artist looking to work on another project
 I land on the site
 I see two options - "Build a Team" and "Find Work"
@@ -66,6 +68,7 @@ I accept the best offer
 This is now reflected in my dashboard
 
 - musician being requested to work
+
 I am a musician with an existing profile
 I received a request to work on a project
 I am presented with interview questions
@@ -217,3 +220,7 @@ I started off by listing the pages I need. It's not a complete list, I just need
 I also created a trello board with the requirements, high distinction criteria and high-level tasks listed. 
 
 ![page_list](https://github.com/reezy24/ZacharyReyes_T2A2/blob/master/docs/images/trello_start.png)
+
+I did some low-fidelty wireframes for the ERD and screens on paper first, before using Figma to create the high-fidelity wireframes and Lucidchart to create the final ERD. 
+https://github.com/reezy24/ZacharyReyes_T2A2/blob/master/docs/sketches.pdf
+
