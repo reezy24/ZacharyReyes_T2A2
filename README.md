@@ -118,7 +118,7 @@ The app has the following components (there is no implied connection between cel
 |ProjectRole|WelcomeController|Show Project|
 |MemberExpertise|BrowseController|My Dashboard - Projects|
 ||OffersController|My Dashboard - Offers|
-|||My Dashboard - Proposals|
+||RegistrationsController|My Dashboard - Proposals|
 |||My Dashboard - Profile|
 |||Project Dashboard - Edit|
 |||Project Dashboard - Members|
@@ -131,17 +131,32 @@ The following describes how the above components work together to achieve the fe
 
 > create and post a project, specifying the areas of expertise that you need to fill
 
-Users
+Users can create a project starting in the My Dashboard - Projects view. They click the "New Project" link which sends a GET request to the "new" method of ProjectController. A new Project with an attached ProjectRole is instantiated and the New Project form is displayed with the relevant fields. The form contains a nested form for ProjectRoles, which Projects can have multiple instances of. Upon filling, the user clicks "Post Project" which sends a POST request to the "create" method. All fields and at least one ProjectRole must be filled for this to pass. The ProjectController also sanitises the parameters before creating and saving the Project. If the Project is successfully saved, the user is redirected to the Show Project view, otherwise the form is re-rendered.
 
-> browse creatives on the platform
-> invite creatives to work on your project
 > create and post a portfolio, specifying your areas of expertise
-> browse projects on the platform
+
+When users first sign up, they are redirected to the My Dashboard - Profile view via a GET request to the "profile" method of MyDashboardController. The controller detects whether the current user's Member model has a first and last name and about me saved, and renders a form with these fields if they haven't. The user must also specify at least one area of expertise, which appears as a nested form and is represented by MemberExpertise. Once submitted, a POST request is sent to the Members::RegistrationsController "update" method where the input is sanitised. This controller inherits Devise's Registrations controller. The user is redirected to the same view, which reads from "current_member" (variable provided by Devise) to display the new information. 
+
+> browse creatives on the platform / browse projects on the platform
+
+Users can click on the "browse" link in the navigation bar and be taken to the Browse view. Here, the user can either select "hire" or "work" and the expertise they are searching for. Once the search criteria has been selected, the user clicks "search" which sends a GET request to the "browse" method of BrowseController. The Browse controller will return an array of ProjectRoles if "work" was selected, or Members if "hire" was selected, in the relevant Expertise. From here, users can click on either the name of the Member or Project and be taken to the relevant Show page. 
+
+> invite creatives to work on your project
+
+Once a user has found a Member of interest via the Browse view, they can view their profile by clicking on their name. This sends a GET request to the MembersController "show" method, passing the Member's id. The MembersController matches the id to the requested Member model and provides this information. The corresponding view is the Show Member page, which is the Member's profile. The Member's full name, "About Me" and portfolio with areas of expertise is displayed. Under the "About Me" section is the "hire" button which the user clicks in order to send an offer. This sends a GET request to the OffersController "new" method, passing the receiver id which is the Member of interest. The OffersController finds all ProjectRoles that are under projects the current member owns, and provides this in the view for them to select. They are redirected to the Create Offer view, which is a form. All fields are required. The user must select the project role that they would like to hire this Member for. Once submitted, a POST request is sent to OffersController "create" method which sanitises the input and creates the Offer. If the Offer was created successfully, the user is redirected to the Manage Project - Requests page via a GET request to the "requests" method of ProjectDashboardController. The ProjectDashboardController retrieves all the offers where the sender is the current user and the ProjectRole is owned by the current user, and the view displays this. 
+
 > request to work on projects you're interested in
+
+Similar to the previous feature, once a user has found a Project of interest via the Browse view, they can view the Project page by clicking the title. This sends a GET request to the "show" method of ProjectsController, passing the Project id. The ProjectsController matches the id to the requested Project model and provides this information. The corresponding view is the Show Project page, where the Project's title, image, description, duration, budget and vacant roles (ProjectRoles) is displayed. Under each vacant role is an "Apply" button which the user clicks in order to send an offer. This sends a GET request to the OffersController "new" method, passing the receiver id which is the Project owner id and the ProjectRole id. They are redirected to the Create Offer view. In this case, the field for ProjectRole is already filled. Once submitted, a POST request is sent to OffersController "create" method which sanitises the input and creates the Offer. If the Offer was created successfully, the user is redirected to the My Dashboard - Proposals page via a GET request to the "proposals" method of MyDashboardController. This retrieves all the offers where the sender is the current user and the ProjectRole is NOT owned by the current user, and the view displays this. 
+
 > simultaneously be a project owner and a member of other projects
 
-- The MembersController allows first-time users to sign up by creating their own Member model. The Member model stores the user's name, profile description, and areas of expertise. Their areas of expertise are represented by the MemberExpertise model, which is the join table between Members and Expertises. Users can view their own profile in the profile section of the My Dashboard view. External users can view other users' profiles in the Browse and Show Member views, and in the My Dashboard or Project Dashboard views where an offer or request is pending. 
-- The ProjectsController allows Members to create their own projects using the Project model. A new Project can be created from the My Dashboard view. It requires a title, description, duration, budget, and at least one area of expertise to be filled, which is represented by the ProjectRole model. The ProjectRole holds a description set by the project owner (e.g. "I need a programmer to code x"), a Project ID, an Expertise ID, and a Member ID which is initially blank. The ProjectRole is considered "filled" when its Member ID is no longer nil, and it is rendered in the views as such. Members can view each of their owned Projects in the My Dashboard view, or in the Project's respective Project Dashboard view (i.e. each Project has it's own Project Dashboard). Members can view projects that they do not own in the Browse and Show Project views, and in their My Dashboard view where an offer or proposal is pending. 
+The user can achieve this by owning a project and successfully being accepted to work on someone else's. Where users fall under this category, it is displayed in the My Dashboard - Projects view. The MyDashboardController retrieves all Projects that the current member owns, and all ProjectRoles that the current member has, and provides this information to the view. 
+
+Offers can also be accepted and declined, and it works like this:
+
+Offers where the current user is on the receiving end display with an "Accept" or "Decline" button beneath them. These offers can either be viewed from My Dashboard - Offers or Project Dashboard - Requests (under the "Inbound" section). When either "
+
 # [R16] Third-Party Services
 Third Party Service / Gem|Description
 ---|---
