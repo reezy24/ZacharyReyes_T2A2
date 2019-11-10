@@ -22,11 +22,11 @@ The MVP, with the goal of connecting game creatives with other creatives, contai
 
 ## Sitemap
 
-## Screenshots
-
 ## Target Audience
+Freelance / independent artists, animators, modellers, level designers, musicians, programmers and game developers. Specifically these people who need the skills of others. 
 
 ## Tech Stack
+HTML, Ruby On Rails, PostgreSQL, Heroku
 
 # [R12] User Stories
 
@@ -45,6 +45,15 @@ For brevity, "creative" refers to any of the six key expertises listed in the "P
 - As a creative, I want to hire other creatives, so I don't have to do all the work myself
 
 # [R13] Wireframes
+
+Mobile: 
+https://github.com/reezy24/ZacharyReyes_T2A2/blob/master/ppt/wireframes_mobile.pdf
+
+Tablet: 
+https://github.com/reezy24/ZacharyReyes_T2A2/blob/master/ppt/wireframes_tablet.pdf
+
+Desktop:
+https://github.com/reezy24/ZacharyReyes_T2A2/blob/master/ppt/wireframes_desktop.pdf
 
 # [R14] Entity-Relationship Diagram (ERD)
 
@@ -151,6 +160,7 @@ An offer allows users to express their interest in projects, and ultimately get 
 |Project to ProjectRole|one-to-many|A Project can have many ProjectRoles that need to be filled, while a ProjectRole can only be a part of one project.
 
 # [R19] Schema Design
+https://github.com/reezy24/ZacharyReyes_T2A2/blob/master/src/game_dev_app/db/schema.rb
 
 # [R20] Project Management
 
