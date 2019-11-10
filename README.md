@@ -107,29 +107,39 @@ For brevity, "creative" refers to any of the following: programmer, musician, an
 # [R15] Abstractions
 > Precisely explains and shows understanding of the different high-level components of the app
 
-The app has the following components:
+The app has the following components (there is no implied connection between cells that share a row):
 
-| Model        | Controller           | View  |
-| ------------- |-------------| -----|
-| Member      | MembersController | Landing |
-| Project      | ProjectsController      |   Sign Up |
-| Expertise | MyDashboardController      |    Log In |
-| Offer | ProjectDashboardController      |    New Project |
-| ProjectRole | WelcomeController      |   Show Project |
-| MemberExpertise | BrowseController      |   Dashboard - Projects |
-| Expertise |       | My Dashboard - Offers|
-| Expertise |       | My Dashboard - Proposals |
-|  |       | My Dashboard - Profile |
-|  |       | Edit Profile |
-|  |       | Project Dashboard - Edit |
-|  |       | Project Dashboard - Members |
-|  |       | Project Dashboard - Requests |
-|  |       | Project Dashboard - Profile |
-|  |       | Browse |
-|  |       | Show Member |
-|  |       | Send Request |
+|Models|Controllers|Views|
+|---|---|---|
+|Member|MembersController|Landing|
+|Project|ProjectsController|Sign Up|
+|Expertise|MyDashboardController|Log In|
+|Offer|ProjectDashboardController|New Project|
+|ProjectRole|WelcomeController|Show Project|
+|MemberExpertise|BrowseController|My Dashboard - Projects|
+||OffersController|My Dashboard - Offers|
+|||My Dashboard - Proposals|
+|||My Dashboard - Profile|
+|||Project Dashboard - Edit|
+|||Project Dashboard - Members|
+|||Project Dashboard - Requests|
+|||Browse|
+|||Show Member|
+|||Create Offer|
 
-Given the features listed in Description, the above components work together to achieve these features in the following ways:
+The following describes how the above components work together to achieve the features listed in the description:
+
+> create and post a project, specifying the areas of expertise that you need to fill
+
+Users
+
+> browse creatives on the platform
+> invite creatives to work on your project
+> create and post a portfolio, specifying your areas of expertise
+> browse projects on the platform
+> request to work on projects you're interested in
+> simultaneously be a project owner and a member of other projects
+
 - The MembersController allows first-time users to sign up by creating their own Member model. The Member model stores the user's name, profile description, and areas of expertise. Their areas of expertise are represented by the MemberExpertise model, which is the join table between Members and Expertises. Users can view their own profile in the profile section of the My Dashboard view. External users can view other users' profiles in the Browse and Show Member views, and in the My Dashboard or Project Dashboard views where an offer or request is pending. 
 - The ProjectsController allows Members to create their own projects using the Project model. A new Project can be created from the My Dashboard view. It requires a title, description, duration, budget, and at least one area of expertise to be filled, which is represented by the ProjectRole model. The ProjectRole holds a description set by the project owner (e.g. "I need a programmer to code x"), a Project ID, an Expertise ID, and a Member ID which is initially blank. The ProjectRole is considered "filled" when its Member ID is no longer nil, and it is rendered in the views as such. Members can view each of their owned Projects in the My Dashboard view, or in the Project's respective Project Dashboard view (i.e. each Project has it's own Project Dashboard). Members can view projects that they do not own in the Browse and Show Project views, and in their My Dashboard view where an offer or proposal is pending. 
 # [R16] Third-Party Services
