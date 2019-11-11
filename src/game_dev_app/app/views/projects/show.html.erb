@@ -15,10 +15,16 @@
 <p><%= @project.description %></p>
 
 <h2>Vacant Roles</h2>
-<% @project.project_roles.each do |role| %>
+<% @vacant_roles.each do |role| %>
     <h3><%= role.expertise.title %></h3>
     <p><%= role.description %></p>
     <% if @project.owner != current_member then %>
         <%= link_to "Apply", new_offer_path(offer: {receiver_id: @project.owner.id, project_role: role.id}) %>
     <% end %>
+<% end %>
+
+<h2>Filled Roles</h2>
+<% @filled_roles.each do |role| %>
+    <h3><%= role.expertise.title %> - <%= Member.find(role.member_id).full_name %></h3>
+    <p><%= role.description %></p>
 <% end %>

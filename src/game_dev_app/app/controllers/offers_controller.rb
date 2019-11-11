@@ -18,7 +18,7 @@ class OffersController < ApplicationController
       Project.all.each do |p|
         if p.owner == current_member then
           p.project_roles.each do |r|
-            @roles << r
+            @roles << r if not r.member_id
           end
         end
       end

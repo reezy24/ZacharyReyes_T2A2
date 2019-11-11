@@ -6,7 +6,15 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-
+    @vacant_roles = []
+    @filled_roles = []
+    @project.project_roles.each do |role|
+      if role.member_id then
+        @filled_roles << role
+      else
+        @vacant_roles << role
+      end
+    end
   end
 
   # GET /projects/new
