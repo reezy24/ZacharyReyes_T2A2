@@ -21,6 +21,7 @@ The MVP, with the goal of connecting game creatives with other creatives, contai
 - simultaneously be a project owner and a member of other projects
 
 ## Sitemap
+![sitemap](https://github.com/reezy24/ZacharyReyes_T2A2/blob/master/docs/images/sitemap.png)
 
 ## Target Audience
 Freelance / independent artists, animators, modellers, level designers, musicians, programmers and game developers. Specifically these people who need the skills of others. 
