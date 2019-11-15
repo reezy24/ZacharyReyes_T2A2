@@ -1,8 +1,10 @@
 <%= render 'my_dashboard_nav' %>
 <h1>My Dashboard - Proposals</h1>
 <% @proposals.each do |prop| %>
-    <p>To: <%= prop.receiver.full_name %></p>
-    <p>Project: <%= prop.project_role.project.title %></p>
-    <p>Role: <%= prop.project_role.expertise.title %></p>
-    <p>Description: <%= prop.description %></p>
+    <div class="offer">
+        <h3><%= prop.project_role.project.title %></h3>
+        <p>Project Owner: <%= prop.receiver.full_name %></p>
+        <p>Applying for: <%= prop.project_role.expertise.title %></p>
+        <p>Message: <%= prop.description %></p>
+    </div>
 <% end %>
